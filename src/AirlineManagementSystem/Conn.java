@@ -1,4 +1,4 @@
-package AirlineManagementSyayem;
+package AirlineManagementSystem;
 
 import java.sql.*;
 
