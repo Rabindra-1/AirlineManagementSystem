@@ -70,7 +70,12 @@ public class Home extends JFrame implements ActionListener {
             new AddCostumer();
         } else if (text.equals("Book Flights")) {
             new BookFlight();
-
+        } else if (text.equals("Journey Details")) {
+            new JourneyDetail();
+        } else if (text.equals("Ticket Cancelation")) {
+            new Cancel();
+        } else if (text.equals("Boarding Pass")) {
+            new BoardingPass();
         }
     }
 

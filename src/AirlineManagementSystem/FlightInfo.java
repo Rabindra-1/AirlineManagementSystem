@@ -30,13 +30,12 @@ public class FlightInfo extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        table.setBounds(20, 90, 780, 480);
+
         table.setFont(new Font("Times New Romania", Font.BOLD, 10));
-        add(table);
 
 
-        JScrollPane jsp = new JScrollPane();
-        jsp.setBounds(20, 90, 780, 480);
+        JScrollPane jsp = new JScrollPane(table);
+        jsp.setBounds(10, 90, 780, 480);
         add(jsp);
 
         setSize(800, 500);
