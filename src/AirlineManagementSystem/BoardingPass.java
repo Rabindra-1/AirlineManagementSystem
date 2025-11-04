@@ -27,11 +27,11 @@ public class BoardingPass extends JFrame implements ActionListener {
         subheader.setBounds(220, 45, 400, 30);
         add(subheader);
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("AirlineManagementSystem/icons/buddha-air.png"));
-        Image i2 = i1.getImage().getScaledInstance(250, 150, Image.SCALE_DEFAULT);
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("AirlineManagementSystem/icons/boarding.png"));
+        Image i2 = i1.getImage().getScaledInstance(150, 130, Image.SCALE_DEFAULT);
         ImageIcon image = new ImageIcon(i2);
         JLabel i3 = new JLabel(image);
-        i3.setBounds(360, 120, 200, 150);
+        i3.setBounds(350, 120, 200, 150);
         add(i3);
 
         JLabel pnrlbl = new JLabel("PNR Number");
@@ -95,7 +95,7 @@ public class BoardingPass extends JFrame implements ActionListener {
         add(fcodelbl);
 
         fcodefld = new JLabel();
-        fcodefld.setBounds(270, 270, 100, 30);
+        fcodefld.setBounds(380, 270, 100, 30);
         add(fcodefld);
 
 
@@ -126,8 +126,13 @@ public class BoardingPass extends JFrame implements ActionListener {
 
                 if (rs.next()) {
                     namefld.setText(rs.getString("name"));
+                    nationfld.setText(rs.getString("nationality"));
+                    srcfld.setText(rs.getString("src"));
+                    destfld.setText(rs.getString("des"));
+                    fnamefld.setText(rs.getString("flightname"));
                     fcodefld.setText(rs.getString("flightcode"));
                     datefld.setText(rs.getString("ddate"));
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Booking not Found");
                 }
