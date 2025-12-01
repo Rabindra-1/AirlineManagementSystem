@@ -1,0 +1,36 @@
+# .github/workflows/jdeploy.yml
+name: JDeploy Web Deployment (CheerpJ)
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Make Build Script Executable
+        # The build.sh is in the subdirectory, so we call it from there
+        run: chmod +x src/AirlineManagementSystem/build.sh
+
+      - name: Build Executable JAR from Source
+        # Execute the script from its location
+        run: src/AirlineManagementSystem/build.sh
+
+      - name: Install jDeploy
+        run: npm install -g jdeploy
+
+      - name: Build and Deploy to GitHub Pages
+        # Run jdeploy from the root, pointing it to the package.json location
+        run: jdeploy publish --github --no-prompt --repo-dir src/AirlineManagementSystem/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

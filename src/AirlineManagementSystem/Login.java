@@ -89,8 +89,8 @@ public class Login extends JFrame implements ActionListener {
                 e.printStackTrace();
             }
         } else if (ae.getSource() == closebtn) {
-            setVisible(false);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setVisible(false);
         } else if (ae.getSource() == resetbtn) {
             userin.setText("");
             passin.setText("");
